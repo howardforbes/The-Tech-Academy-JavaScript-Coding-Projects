@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        #invoice_table {
+            display: none;
+        }
+        #spacer {
+            padding: 30px;
+        }
+    </style>
+    <title>Pizza Menu</title>
+  </head>
+  <body>
+        <div class="jumbotron">
+            <h1 class="display-4 text-center text-primary">Pizza Menu</h1>
+        </div>
+
+        <form id="pizzaForm">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Size Selection:</p>      
+                    <input type="radio" name="size_selection_radio_btns" value="Personal" checked> Personal</input><br>
+                    <input type="radio" name="size_selection_radio_btns" value="Medium"> Medium</input><br>
+                    <input type="radio" name="size_selection_radio_btns" value="Large"> Large</input><br>
+                    <input type="radio" name="size_selection_radio_btns" value="Extra Large"> Extra Large</input>  
+                </div>
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Selection of Meats:</p>
+                    <input type="checkbox" id="Pepperoni" name="meats" value="Pepperoni">
+                    <label for="Pepperoni">Pepperoni</label><br>
+                    <input type="checkbox" id="Sausage" name="meats" value="Sausage">
+                    <label for="Sausage">Sausage</label><br>
+                    <input type="checkbox" id="CanadianBacon" name="meats" value="Canadian Bacon">
+                    <label for="CanadianBacon">Canadian Bacon</label><br>
+                    <input type="checkbox" id="GroundBeef" name="meats" value="Ground Beef">
+                    <label for="GroundBeef">Ground Beef</label><br>
+                    <input type="checkbox" id="Anchovy" name="meats" value="Anchovy">
+                    <label for="Anchovy">Anchovy</label><br>
+                    <input type="checkbox" id="Chicken" name="meats" value="Chicken">
+                    <label for="Chicken">Chicken</label>
+                </div>
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Cheese Selection:</p>
+                    <input type="radio" name="cheese_selection_radio_btns" value="Regular Cheese" checked>Regular Cheese</input><br>
+                    <input type="radio" name="cheese_selection_radio_btns" value="No Cheese">No Cheese</input><br>
+                    <input type="radio" name="cheese_selection_radio_btns" value="Extra Cheese">Extra Cheese</input>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Crust Selection:</p>
+                    <input type="radio" name="crust_selection_radio_btns" value="Plain Crust" checked>Plain Crust</input><br>
+                    <input type="radio" name="crust_selection_radio_btns" value="Garlic Butter Crust">Garlic Butter Crust</input><br>
+                    <input type="radio" name="crust_selection_radio_btns" value="Cheese Stuffed Crust">Cheese Stuffed Crust</input><br>
+                    <input type="radio" name="crust_selection_radio_btns" value="Spicy Crust">Spicy Crust</input><br>
+                    <input type="radio" name="crust_selection_radio_btns" value="House Special Crust">House Special Crust</input>
+                </div>
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Sauce Selection:</p>
+                    <input type="radio" name="sauce_selection_radio_btns" value="Marinara Sauce" checked>Marinara</input><br>
+                    <input type="radio" name="sauce_selection_radio_btns" value="White Sauce">White</input><br>
+                    <input type="radio" name="sauce_selection_radio_btns" value="Barbeque Sauce">Barbeque</input><br>
+                    <input type="radio" name="sauce_selection_radio_btns" value="No Sauce">No Sauce</input>
+                </div>
+                <div class="col-sm border border-secondary rounded m-1">
+                    <p class="text-primary font-weight-bold">Selection of Veggies:</p>
+                    <input type="checkbox" id="Tomatoes" name="veggies" value="Tomatoes">
+                    <label for="Tomatoes">Tomatoes</label><br>
+                    <input type="checkbox" id="Onions" name="veggies" value="Onions">
+                    <label for="Onions">Onions</label><br>
+                    <input type="checkbox" id="Olives" name="veggies" value="Olives">
+                    <label for="Olives">Olives</label><br>
+                    <input type="checkbox" id="GreenPeppers" name="veggies" value="Green Peppers">
+                    <label for="GreenPeppers">Green Peppers</label><br>
+                    <input type="checkbox" id="Mushrooms" name="veggies" value="Mushrooms">
+                    <label for="Mushrooms">Mushrooms</label><br>
+                    <input type="checkbox" id="Pinapple" name="veggies" value="Pinapple">
+                    <label for="Pinapple">Pinapple</label><br>
+                    <input type="checkbox" id="Spinach" name="veggies" value="Spinach">
+                    <label for="Spinach">Spinach</label><br>
+                    <input type="checkbox" id="Jalapeno" name="veggies" value="Jalapeno">
+                    <label for="Jalapeno">Jalapeno</label>
+                </div>
+            </div>
+        </div>
+
+        </form>
+
+        <div class="container mt-5 text-center">
+            <button type="button" class="btn btn-primary" onclick="Calc()">Place Order</button>
+            <button type="button" class="btn btn-primary" onclick="Cancel()">Cancel Order</button>
+        </div>
+
+        <div class="container">
+            <table id="invoice_table">
+                <tr>
+                    <td>
+                        <p class="text-primary font-weight-bold">Description:</p>
+                    </td>
+                    <td id="spacer">
+
+                    </td>
+                    <td>
+                        <p class="text-primary font-weight-bold">Subtotal:</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p id="description"></p>
+                    </td>
+                    <td id="spacer">
+
+                    </td>
+                    <td>
+                        <p id="subtotal"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="text-primary font-weight-bold">Total:</p>
+                    </td>
+                    <td id="spacer">
+
+                    </td>
+                    <td>
+                        <p id="total" class="text-primary font-weight-bold"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    <script>
+       
+        function Calc() {
+            
+            var description = "";
+            var subtotal = "";
+            var total = 0;
+
+            var sizeSelection = document.querySelector('input[name="size_selection_radio_btns"]:checked').value;
+
+            if(sizeSelection == "Personal") {
+                description += "Personal<br>";
+                subtotal += "6<br>";
+                total += 6;
+            }else if(sizeSelection == "Medium"){
+                description += "Medium<br>";
+                subtotal += "10<br>";
+                total += 10;
+            }else if(sizeSelection == "Large"){
+                description += "Large<br>";
+                subtotal += "14<br>";
+                total += 14;
+            }else if(sizeSelection == "Extra Large"){
+                description += "Extra Large<br>";
+                subtotal += "16<br>";
+                total += 16;
+            }
+
+            var meatCheckboxes = document.getElementsByName("meats");
+
+            count = 0;
+            for(var i = 0; i < meatCheckboxes.length; i++) {
+                if(meatCheckboxes[i].checked) {
+                    count = count + 1;
+                    if(count == 1){
+                        description += meatCheckboxes[i].value + "<br>";
+                        subtotal += "0<br>"
+                    }else{
+                        description += meatCheckboxes[i].value + "<br>";
+                        subtotal += "1<br>" 
+                        total += 1;              
+                    }
+                    
+                }
+            }
+
+            var cheeseSelection = document.querySelector('input[name="cheese_selection_radio_btns"]:checked').value;
+
+            if(cheeseSelection == "Regular Cheese") {
+                description += "Regular Cheese<br>";
+                subtotal += "0<br>";
+            }else if(cheeseSelection == "No Cheese"){
+                description += "No Cheese<br>";
+                subtotal += "0<br>";
+            }else if(cheeseSelection == "Extra Cheese"){
+                description += "Extra Cheese<br>";
+                subtotal += "3<br>";
+                total += 3;
+            }
+
+            var crustSelection = document.querySelector('input[name="crust_selection_radio_btns"]:checked').value;
+
+            if(crustSelection == "Plain Crust") {
+                description += "Plain Crust<br>";
+                subtotal += "0<br>";
+            }else if(crustSelection == "Garlic Butter Crust"){
+                description += "Garlic Butter Crust<br>";
+                subtotal += "0<br>";
+            }else if(crustSelection == "Cheese Stuffed Crust"){
+                description += "Cheese Stuffed Crust<br>";
+                subtotal += "3<br>";
+                total += 3;
+            }else if(crustSelection == "Spicy Crust"){
+                description += "Spicy Crust";
+                subtotal += "0<br>";
+            }else if(crustSelection == "House Special Crust"){
+                description += "House Special Crust";
+                subtotal += "0<br>";
+            }
+
+            var sauceSelection = document.querySelector('input[name="sauce_selection_radio_btns"]:checked').value;
+
+            if(sauceSelection == "Marinara Sauce") {
+                description += "Marinara Sauce<br>";
+                subtotal += "0<br>";
+            }else if(sauceSelection == "White Sauce"){
+                description += "White Sauce<br>";
+                subtotal += "0<br>";
+            }else if(sauceSelection == "Barbeque Sauce"){
+                description += "Barbeque Sauce<br>";
+                subtotal += "0<br>";
+            }else if(sauceSelection == "No Sauce"){
+                description += "No Sauce"
+                subtotal += "0<br>"
+            }
+
+            var veggieCheckboxes = document.getElementsByName("veggies");
+
+            count2 = 0;
+            for(var i = 0; i < veggieCheckboxes.length; i++) {
+                if(veggieCheckboxes[i].checked) {
+                    count2 = count2 + 1;
+                    if(count2 == 1){
+                        description += veggieCheckboxes[i].value + "<br>";
+                        subtotal += "0<br>"
+                    }else{
+                        description += veggieCheckboxes[i].value + "<br>";
+                        subtotal += "1<br>" 
+                        total += 1;              
+                    }
+                    
+                }
+            }
+
+            document.getElementById("description").innerHTML = description;
+            document.getElementById("subtotal").innerHTML = subtotal;
+            document.getElementById("total").innerHTML = total;
+            document.getElementById("invoice_table").style.display = "block";
+            window.scrollTo(0,document.body.scrollHeight);
+        };
+
+        function Cancel() {
+            document.getElementById("invoice_table").style.display = "none";
+            document.getElementById("pizzaForm").reset();
+        };
+
+        
+        </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
